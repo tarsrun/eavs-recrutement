@@ -1,83 +1,492 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EAVS Groupe - Alternance Marketing Digital & Innovation</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .gradient-eavs { background: linear-gradient(135deg, #1e293b 0%, #334155 100%); }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EAVS Groupe – Alternance Marketing Digital & IA</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --orange: #ff751f;
+    --violet: #7d489c;
+    --dark: #1a1a2e;
+    --mid: #16213e;
+    --light-bg: #f8f7ff;
+    --card-bg: #ffffff;
+    --text: #1a1a2e;
+    --muted: #6b7280;
+    --border: rgba(125,72,156,0.15);
+    --orange-soft: rgba(255,117,31,0.08);
+    --violet-soft: rgba(125,72,156,0.08);
+  }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--light-bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* HEADER */
+  .hero {
+    background: linear-gradient(135deg, #1a1a2e 0%, #2d1b4e 50%, #1e3a5f 100%);
+    padding: 64px 24px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(255,117,31,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -60px;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(125,72,156,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .badge {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--orange), var(--violet));
+    color: white;
+    font-family: 'Sora', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 800;
+    color: white;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero h1 span { color: var(--orange); }
+  .hero-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.65);
+    max-width: 480px;
+    margin: 0 auto 28px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-meta span {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.85);
+    font-size: 13px;
+    padding: 6px 14px;
+    border-radius: 8px;
+  }
+  .hero-meta span strong { color: white; }
+
+  /* MAIN LAYOUT */
+  .container { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+  .main { padding: 48px 0 64px; }
+
+  /* CONTEXT STRIP */
+  .context-strip {
+    background: white;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--orange);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .context-icon {
+    width: 40px; height: 40px; flex-shrink: 0;
+    background: var(--orange-soft);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .context-strip p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+  .context-strip p strong { color: var(--text); }
+
+  /* SECTION TITLE */
+  .section-title {
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--violet);
+    margin-bottom: 20px;
+  }
+
+  /* MISSIONS GRID */
+  .missions { margin-bottom: 48px; }
+  .missions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .mission-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .mission-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(125,72,156,0.1);
+  }
+  .mission-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .mission-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .icon-orange { background: var(--orange-soft); }
+  .icon-violet { background: var(--violet-soft); }
+  .icon-teal { background: rgba(29,158,117,0.08); }
+  .mission-card h3 {
+    font-family: 'Sora', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+  }
+  .mission-card ul { list-style: none; }
+  .mission-card ul li {
+    font-size: 13px;
+    color: var(--muted);
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.5;
+  }
+  .mission-card ul li:last-child { border-bottom: none; }
+  .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+  .dot-orange { background: var(--orange); }
+  .dot-violet { background: var(--violet); }
+  .dot-teal { background: #1d9e75; }
+
+  /* TOOLS */
+  .tools-section { margin-bottom: 48px; }
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 10px;
+  }
+  .tool-chip {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    text-align: center;
+    line-height: 1.4;
+  }
+  .tool-chip .tool-cat {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .tool-chip.cat-web .tool-cat { color: var(--orange); }
+  .tool-chip.cat-com .tool-cat { color: var(--violet); }
+  .tool-chip.cat-ia .tool-cat { color: #1d9e75; }
+
+  /* PROFIL */
+  .profil-section { margin-bottom: 48px; }
+  .profil-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media(max-width: 520px) { .profil-grid { grid-template-columns: 1fr; } }
+  .profil-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+  }
+  .profil-card h4 {
+    font-family: 'Sora', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .profil-card.must h4 { color: var(--orange); }
+  .profil-card.plus h4 { color: var(--violet); }
+  .profil-card ul { list-style: none; }
+  .profil-card ul li {
+    font-size: 13px;
+    color: var(--muted);
+    padding: 5px 0;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .profil-card ul li::before {
+    content: '✓';
+    font-size: 12px;
+    margin-top: 1px;
+    flex-shrink: 0;
+  }
+  .profil-card.must ul li::before { color: var(--orange); }
+  .profil-card.plus ul li::before { color: var(--violet); }
+
+  /* CTA */
+  .cta-block {
+    background: linear-gradient(135deg, #1a1a2e, #2d1b4e);
+    border-radius: 20px;
+    padding: 48px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-block::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(255,117,31,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .cta-block h2 {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 800;
+    color: white;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+  }
+  .cta-block p {
+    color: rgba(255,255,255,0.6);
+    font-size: 14px;
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--orange), var(--violet));
+    color: white;
+    font-family: 'Sora', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px 36px;
+    border-radius: 100px;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .cta-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+  .cta-sub {
+    margin-top: 16px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 28px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  footer a { color: var(--violet); text-decoration: none; }
+
+  /* DIVIDER */
+  .divider { height: 1px; background: var(--border); margin: 40px 0; }
+</style>
 </head>
-<body class="bg-gray-50 text-gray-900 antialiased">
+<body>
 
-    <header class="gradient-eavs text-white py-16 px-4 text-center">
-        <div class="max-w-4xl mx-auto">
-            <span class="bg-blue-500 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">Recrutement Septembre 2026</span>
-            <h1 class="mt-6 text-4xl md:text-5xl font-extrabold tracking-tight">Alternant Marketing Digital <br>& Innovation IA</h1>
-            <p class="mt-4 text-xl text-gray-300">Rejoignez le leader de la distribution audiovisuelle B2B.</p>
+<header class="hero">
+  <div class="badge">Recrutement — Septembre 2026</div>
+  <h1>Alternant·e Marketing Digital<br>& <span>Innovation IA</span></h1>
+  <p class="hero-sub">Distribuez les meilleures marques AV du marché. Construisez la stratégie digitale qui va avec.</p>
+  <div class="hero-meta">
+    <span><strong>24 mois</strong> · Alternance</span>
+    <span><strong>Bonneuil-sur-Marne</strong> · 94380</span>
+    <span><strong>Bac+3 à Bac+5</strong> Marketing/Com</span>
+    <span>Rythme <strong>3 sem. / 1 sem.</strong></span>
+  </div>
+</header>
+
+<main class="main">
+  <div class="container">
+
+    <!-- CONTEXT -->
+    <div class="context-strip">
+      <div class="context-icon">🏢</div>
+      <p>
+        <strong>EAVS Groupe</strong> est distributeur B2B de solutions audiovisuelles et de digitalisation — affichage professionnel, collaboration, salle de réunion. Vous serez le seul profil marketing de l'entreprise, directement rattaché au Responsable Marketing. Pas de bureaucratie : vos actions ont un impact immédiat sur le catalogue, les campagnes et la visibilité des marques.
+      </p>
+    </div>
+
+    <!-- MISSIONS -->
+    <div class="missions">
+      <p class="section-title">Vos missions</p>
+      <div class="missions-grid">
+
+        <div class="mission-card">
+          <div class="mission-card-header">
+            <div class="mission-icon icon-orange">🛒</div>
+            <h3>E-Commerce & Web</h3>
+          </div>
+          <ul>
+            <li><span class="dot dot-orange"></span>Gestion du catalogue PrestaShop 9.0 — fiches produits, visuels, fiches techniques</li>
+            <li><span class="dot dot-orange"></span>Optimisation SEO — Search Console, maillage interne, balises</li>
+            <li><span class="dot dot-orange"></span>Mise à jour et enrichissement de glossaire-av.com</li>
+            <li><span class="dot dot-orange"></span>Analyse des performances e-commerce et reporting mensuel</li>
+          </ul>
         </div>
-    </header>
 
-    <main class="max-w-4xl mx-auto py-12 px-6">
-        
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold border-b-2 border-blue-500 pb-2 mb-6">Le challenge</h2>
-            <p class="text-lg leading-relaxed text-gray-700">
-                Sous la responsabilité du Responsable Marketing, vous participerez activement à la transformation digitale d'<strong>EAVS Groupe</strong>. 
-                Votre rôle sera hybride : assurer la performance de notre e-commerce sous <strong>PrestaShop 9.0</strong> tout en explorant l'automatisation par l'IA pour nos contenus.
-            </p>
-        </section>
-
-        <div class="grid md:grid-cols-2 gap-8 mb-12">
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                <h3 class="font-bold text-blue-600 mb-3 text-lg">🚀 E-Commerce & Web</h3>
-                <ul class="space-y-2 text-gray-600">
-                    <li>• Gestion du catalogue PrestaShop</li>
-                    <li>• Optimisation SEO des fiches produits</li>
-                    <li>• Mise à jour du site glossaire-av.com</li>
-                    <li>• Analyse Google Search Console</li>
-                </ul>
-            </div>
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                <h3 class="font-bold text-blue-600 mb-3 text-lg">📢 Communication & IA</h3>
-                <ul class="space-y-2 text-gray-600">
-                    <li>• Newsletters (Omnisend / Resend)</li>
-                    <li>• Social Media (LinkedIn)</li>
-                    <li>• Création visuelle via Canva</li>
-                    <li>• Veille et tests d'outils IA</li>
-                </ul>
-            </div>
+        <div class="mission-card">
+          <div class="mission-card-header">
+            <div class="mission-icon icon-violet">📢</div>
+            <h3>Communication & Social Media</h3>
+          </div>
+          <ul>
+            <li><span class="dot dot-violet"></span>Newsletters B2B via Omnisend et Resend — rédaction, segmentation, A/B</li>
+            <li><span class="dot dot-violet"></span>LinkedIn EAVS Groupe — planification, posts fournisseurs, actualités produits</li>
+            <li><span class="dot dot-violet"></span>Création de visuels (Canva) — bannières, posts, fiches produits</li>
+            <li><span class="dot dot-violet"></span>Soutien aux salons pro (SETA, ISE…) — brief, print, coordination</li>
+          </ul>
         </div>
 
-        <section class="mb-12 bg-gray-100 p-8 rounded-2xl">
-            <h2 class="text-xl font-bold mb-6 text-center">Votre boîte à outils</h2>
-            <div class="flex flex-wrap justify-center gap-4 text-sm font-medium">
-                <span class="bg-white px-4 py-2 rounded-lg shadow-sm">PrestaShop 9.0</span>
-                <span class="bg-white px-4 py-2 rounded-lg shadow-sm">Omnisend / Resend</span>
-                <span class="bg-white px-4 py-2 rounded-lg shadow-sm">Canva</span>
-                <span class="bg-white px-4 py-2 rounded-lg shadow-sm">Claude / Gemini</span>
-                <span class="bg-white px-4 py-2 rounded-lg shadow-sm">Google Workspace</span>
-                <span class="bg-white px-4 py-2 rounded-lg shadow-sm">Sage</span>
-            </div>
-        </section>
+        <div class="mission-card">
+          <div class="mission-card-header">
+            <div class="mission-icon icon-teal">🤖</div>
+            <h3>IA & Innovation</h3>
+          </div>
+          <ul>
+            <li><span class="dot dot-teal"></span>Automatisation de la génération de fiches produits (Claude / Gemini)</li>
+            <li><span class="dot dot-teal"></span>Veille et tests d'outils IA pour la création de contenu</li>
+            <li><span class="dot dot-teal"></span>Participation à la feuille de route digitale interne</li>
+            <li><span class="dot dot-teal"></span>Intégration des assets fournisseurs dans les workflows IA</li>
+          </ul>
+        </div>
 
-        <section class="text-center bg-blue-600 text-white p-10 rounded-3xl shadow-xl">
-            <h2 class="text-3xl font-bold mb-4">Prêt(e) pour l'aventure ?</h2>
-            <p class="mb-8 text-blue-100">Nous cherchons un profil pragmatique, curieux et technophile.</p>
-            <a href="mailto:votre-email@eavs-groupe.fr?subject=Candidature Alternance Marketing" 
-               class="bg-white text-blue-600 font-bold py-4 px-10 rounded-full hover:bg-gray-100 transition-all text-lg">
-                Postuler maintenant
-            </a>
-        </section>
+        <div class="mission-card">
+          <div class="mission-card-header">
+            <div class="mission-icon icon-orange">📊</div>
+            <h3>Pilotage & Support</h3>
+          </div>
+          <ul>
+            <li><span class="dot dot-orange"></span>Suivi des KPIs marketing — tableaux de bord Google Workspace</li>
+            <li><span class="dot dot-orange"></span>Veille concurrentielle et benchmark fournisseurs</li>
+            <li><span class="dot dot-orange"></span>Soutien commercial — présentations, docs d'offre, suivi prospects</li>
+            <li><span class="dot dot-orange"></span>Contribution au bilan RSE de l'entreprise</li>
+          </ul>
+        </div>
 
-    </main>
+      </div>
+    </div>
 
-    <footer class="py-8 text-center text-gray-400 text-sm">
-        &copy; 2026 EAVS Groupe - Saint-Maur-des-Fossés
-    </footer>
+    <!-- TOOLS -->
+    <div class="tools-section">
+      <p class="section-title">Votre stack</p>
+      <div class="tools-grid">
+        <div class="tool-chip cat-web"><span class="tool-cat">Web</span>PrestaShop 9.0</div>
+        <div class="tool-chip cat-web"><span class="tool-cat">Web</span>Google Search Console</div>
+        <div class="tool-chip cat-web"><span class="tool-cat">Web</span>Google Workspace</div>
+        <div class="tool-chip cat-com"><span class="tool-cat">Com</span>Omnisend / Resend</div>
+        <div class="tool-chip cat-com"><span class="tool-cat">Com</span>LinkedIn</div>
+        <div class="tool-chip cat-com"><span class="tool-cat">Com</span>Canva</div>
+        <div class="tool-chip cat-ia"><span class="tool-cat">IA</span>Claude / Gemini</div>
+        <div class="tool-chip cat-ia"><span class="tool-cat">IA</span>Notions HTML/CSS</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- PROFIL -->
+    <div class="profil-section">
+      <p class="section-title">Profil recherché</p>
+      <div class="profil-grid">
+        <div class="profil-card must">
+          <h4>Indispensable</h4>
+          <ul>
+            <li>Formation Bac+3 à Bac+5 Marketing / Com / Digital</li>
+            <li>Curiosité réelle pour les outils IA — pas juste sur le CV</li>
+            <li>Rédaction claire et structurée, en français</li>
+            <li>Autonomie et sens de l'initiative</li>
+            <li>À l'aise avec Google Workspace et les CMS</li>
+          </ul>
+        </div>
+        <div class="profil-card plus">
+          <h4>Un vrai plus</h4>
+          <ul>
+            <li>Notions SEO / analytics (Search Console, GA4)</li>
+            <li>Expérience email marketing (Omnisend, Mailchimp…)</li>
+            <li>Bases HTML/CSS pour retouches de templates</li>
+            <li>Goût pour le secteur tech / AV pro / B2B</li>
+            <li>Montage vidéo courts formats</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-block">
+      <h2>Prêt·e à construire avec nous ?</h2>
+      <p>CV + lettre de motivation — objet : <strong style="color:rgba(255,255,255,0.85)">"Candidature Alternance Marketing"</strong></p>
+      <a href="mailto:a.vernon@eavs-groupe.fr?subject=Candidature%20Alternance%20Marketing" class="cta-btn">
+        Postuler — a.vernon@eavs-groupe.fr
+      </a>
+      <p class="cta-sub">Prise de poste septembre 2026 · Bonneuil-sur-Marne (94)</p>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  &copy; 2026 EAVS Groupe · <a href="https://eavs-groupe.fr">eavs-groupe.fr</a> · 01 45 13 28 60 · Bonneuil-sur-Marne 94380
+</footer>
 
 </body>
 </html>
