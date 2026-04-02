@@ -142,7 +142,7 @@
   .missions { margin-bottom: 48px; }
   .missions-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 16px;
   }
   .mission-card {
@@ -338,6 +338,95 @@
   }
   footer a { color: var(--violet); text-decoration: none; }
 
+  .mission-example {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--violet);
+    background: var(--violet-soft);
+    border-radius: 8px;
+    padding: 10px 12px;
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  /* LEARN */
+  .learn-section { margin-bottom: 48px; }
+  .learn-grid { display: flex; flex-direction: column; gap: 16px; }
+  .learn-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px 24px;
+  }
+  .learn-num {
+    font-family: 'Sora', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--orange);
+    opacity: 0.3;
+    min-width: 36px;
+    line-height: 1;
+    margin-top: 2px;
+  }
+  .learn-item strong {
+    font-family: 'Sora', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .learn-item p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  /* TUTOR */
+  .tutor-section { margin-bottom: 48px; }
+  .tutor-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+  .tutor-avatar {
+    width: 52px; height: 52px; flex-shrink: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--orange), var(--violet));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Sora', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    color: white;
+  }
+  .tutor-name {
+    font-family: 'Sora', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .tutor-title {
+    font-size: 12px;
+    color: var(--violet);
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+  .tutor-quote {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.75;
+    border-left: 3px solid var(--orange);
+    padding-left: 14px;
+    font-style: italic;
+  }
+  @media(max-width: 520px) {
+    .tutor-card { flex-direction: column; }
+    .learn-item { flex-direction: column; gap: 8px; }
+  }
+
   /* DIVIDER */
   .divider { height: 1px; background: var(--border); margin: 40px 0; }
 </style>
@@ -381,8 +470,9 @@
             <li><span class="dot dot-orange"></span>Gestion du catalogue PrestaShop 9.0 — fiches produits, visuels, fiches techniques</li>
             <li><span class="dot dot-orange"></span>Optimisation SEO — Search Console, maillage interne, balises</li>
             <li><span class="dot dot-orange"></span>Mise à jour et enrichissement de glossaire-av.com</li>
-            <li><span class="dot dot-orange"></span>Analyse des performances e-commerce et reporting mensuel</li>
+            <li><span class="dot dot-orange"></span>Préparation de docs produits pour l'équipe commerciale — fiches, présentations marques</li>
           </ul>
+          <p class="mission-example">Ex : mise en ligne de 12 nouveaux produits TCL avec visuels et fiches techniques fournis par la marque, puis création d'une présentation produit pour les commerciaux.</p>
         </div>
 
         <div class="mission-card">
@@ -395,7 +485,9 @@
             <li><span class="dot dot-violet"></span>LinkedIn EAVS Groupe — planification, posts fournisseurs, actualités produits</li>
             <li><span class="dot dot-violet"></span>Création de visuels (Canva) — bannières, posts, fiches produits</li>
             <li><span class="dot dot-violet"></span>Soutien aux salons pro (SETA, ISE…) — brief, print, coordination</li>
+            <li><span class="dot dot-violet"></span>Suivi des KPIs et veille concurrentielle — tableaux de bord, benchmark fournisseurs</li>
           </ul>
+          <p class="mission-example">Ex : planifier et rédiger un mois de posts LinkedIn autour du lancement d'une nouvelle marque, puis analyser les performances (portée, engagement, trafic site).</p>
         </div>
 
         <div class="mission-card">
@@ -409,19 +501,7 @@
             <li><span class="dot dot-teal"></span>Participation à la feuille de route digitale interne</li>
             <li><span class="dot dot-teal"></span>Intégration des assets fournisseurs dans les workflows IA</li>
           </ul>
-        </div>
-
-        <div class="mission-card">
-          <div class="mission-card-header">
-            <div class="mission-icon icon-orange">📊</div>
-            <h3>Pilotage & Support</h3>
-          </div>
-          <ul>
-            <li><span class="dot dot-orange"></span>Suivi des KPIs marketing — tableaux de bord Google Workspace</li>
-            <li><span class="dot dot-orange"></span>Veille concurrentielle et benchmark fournisseurs</li>
-            <li><span class="dot dot-orange"></span>Soutien commercial — présentations, docs d'offre, suivi prospects</li>
-            <li><span class="dot dot-orange"></span>Contribution au bilan RSE de l'entreprise</li>
-          </ul>
+          <p class="mission-example">Ex : construire un prompt capable de générer automatiquement une fiche produit complète à partir d'un datasheet fournisseur PDF.</p>
         </div>
 
       </div>
@@ -444,6 +524,60 @@
 
     <div class="divider"></div>
 
+    <!-- CE QUE VOUS ALLEZ APPRENDRE -->
+    <div class="learn-section">
+      <p class="section-title">Ce que vous allez apprendre</p>
+      <div class="learn-grid">
+        <div class="learn-item">
+          <div class="learn-num">01</div>
+          <div>
+            <strong>Piloter un e-commerce B2B de A à Z</strong>
+            <p>Catalogue, fiches produits, SEO, analytics — sur un PrestaShop 9.0 en production réelle, pas sur un site vitrine d'école.</p>
+          </div>
+        </div>
+        <div class="learn-item">
+          <div class="learn-num">02</div>
+          <div>
+            <strong>Intégrer l'IA dans des workflows marketing concrets</strong>
+            <p>Génération de contenus, automatisation, prompting — des outils comme Claude ou Gemini utilisés en contexte professionnel, pas en démo.</p>
+          </div>
+        </div>
+        <div class="learn-item">
+          <div class="learn-num">03</div>
+          <div>
+            <strong>Construire et animer une présence social media B2B</strong>
+            <p>LinkedIn, newsletters, campagnes — faire connaître EAVS Groupe et ses marques auprès d'une audience professionnelle exigeante.</p>
+          </div>
+        </div>
+        <div class="learn-item">
+          <div class="learn-num">04</div>
+          <div>
+            <strong>Travailler dans un secteur tech de niche</strong>
+            <p>AV pro, digitalisation, B2B — des cycles de vente longs, des interlocuteurs experts, une vraie montée en compétences métier.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- MOT DU TUTEUR -->
+    <div class="tutor-section">
+      <p class="section-title">Votre tuteur</p>
+      <div class="tutor-card">
+        <div class="tutor-avatar">AV</div>
+        <div class="tutor-content">
+          <div class="tutor-name">Arnaud Vernon</div>
+          <div class="tutor-title">Responsable Marketing · EAVS Groupe</div>
+          <blockquote class="tutor-quote">
+            "Je cherche quelqu'un qui a envie de comprendre, pas juste d'exécuter. Ici, vous aurez accès à l'ensemble de la stratégie — e-commerce, communication, outils IA — et une vraie marge de manœuvre pour proposer et tester. Ce que j'attends : de la curiosité, de la rigueur, de la créativité, de l'autonomie, et l'envie de progresser vite."
+          </blockquote>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
     <!-- PROFIL -->
     <div class="profil-section">
       <p class="section-title">Profil recherché</p>
@@ -455,13 +589,14 @@
             <li>Curiosité réelle pour les outils IA — pas juste sur le CV</li>
             <li>Rédaction claire et structurée, en français</li>
             <li>Autonomie et sens de l'initiative</li>
+            <li>Créativité — capacité à proposer, pas juste exécuter</li>
             <li>À l'aise avec Google Workspace et les CMS</li>
           </ul>
         </div>
         <div class="profil-card plus">
           <h4>Un vrai plus</h4>
           <ul>
-            <li>Notions SEO / analytics (Search Console, GA4)</li>
+            <li>Maîtrise des réseaux sociaux (LinkedIn, Instagram…)</li>
             <li>Expérience email marketing (Omnisend, Mailchimp…)</li>
             <li>Bases HTML/CSS pour retouches de templates</li>
             <li>Goût pour le secteur tech / AV pro / B2B</li>
@@ -475,18 +610,8 @@
     <div class="cta-block">
       <h2>Prêt·e à construire avec nous ?</h2>
       <p>CV + lettre de motivation — objet : <strong style="color:rgba(255,255,255,0.85)">"Candidature Alternance Marketing"</strong></p>
-      <a href="mailto:a.vernon@eavs-groupe.fr?subject=Candidature%20Alternance%20Marketing" class="cta-btn">
-        Postuler — a.vernon@eavs-groupe.fr
+      <a href="/cdn-cgi/l/email-protection#9ffeb1e9faedf1f0f1dffafee9ecb2f8edf0eaeffab1f9eda0eceafdf5fafceba2dcfef1fbf6fbfeebeaedfabaadafdef3ebfaedf1fef1fcfabaadafd2feedf4faebf6f1f8" class="cta-btn">
+        Postuler — <span class="__cf_email__" data-cfemail="41206f3724332f2e2f01242037326c26332e3431246f2733">[email&#160;protected]</span>
       </a>
       <p class="cta-sub">Prise de poste septembre 2026 · Bonneuil-sur-Marne (94)</p>
-    </div>
-
-  </div>
-</main>
-
-<footer>
-  &copy; 2026 EAVS Groupe · <a href="https://eavs-groupe.fr">eavs-groupe.fr</a> · 01 45 13 28 60 · Bonneuil-sur-Marne 94380
-</footer>
-
-</body>
-</html>
+    <
