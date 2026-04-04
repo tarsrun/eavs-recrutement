@@ -429,6 +429,23 @@
 
   /* DIVIDER */
   .divider { height: 1px; background: var(--border); margin: 40px 0; }
+
+  /* MISSION MAIN */
+  .mission-main { margin-bottom: 16px; }
+  .mission-main h3 { font-size: 16px !important; }
+  .mission-desc {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 16px;
+    line-height: 1.65;
+    font-style: italic;
+    border-left: 3px solid var(--orange);
+    padding-left: 12px;
+  }
+
+  /* EXTRA TOOL CATEGORIES */
+  .tool-chip.cat-social .tool-cat { color: #0a66c2; }
+  .tool-chip.cat-work .tool-cat { color: #4285f4; }
 </style>
 </head>
 <body>
@@ -440,7 +457,7 @@
   <div class="hero-meta">
     <span><strong>24 mois</strong> · Alternance</span>
     <span><strong>Bonneuil-sur-Marne</strong> · 94380</span>
-    <span><strong>Bac+3 à Bac+5</strong> Marketing/Com</span>
+    <span><strong>Bac à Bac+3</strong> Filières Digital</span>
     <span>Rythme <strong>3 sem. / 1 sem.</strong></span>
   </div>
 </header>
@@ -459,6 +476,23 @@
     <!-- MISSIONS -->
     <div class="missions">
       <p class="section-title">Vos missions</p>
+
+      <!-- Bloc principal pleine largeur -->
+      <div class="mission-card mission-main">
+        <div class="mission-card-header">
+          <div class="mission-icon icon-orange">📱</div>
+          <h3>Mission Principale : Stratégie Social Media & Growth B2B</h3>
+        </div>
+        <p class="mission-desc">Développer la présence digitale d'EAVS Groupe sur les réseaux sociaux professionnels en déployant une stratégie de contenu orientée lead generation et engagement.</p>
+        <ul>
+          <li><span class="dot dot-orange"></span><strong>Stratégie Éditoriale :</strong> Conception et pilotage du calendrier mensuel multi-plateformes (LinkedIn, Instagram, Facebook, YouTube).</li>
+          <li><span class="dot dot-orange"></span><strong>Production de Contenu :</strong> Création de assets performants (carrousels, vidéos courtes/Reels, articles de fond) alignés sur nos objectifs de croissance.</li>
+          <li><span class="dot dot-orange"></span><strong>Analyse & Reporting :</strong> Suivi des KPIs (Reach, Engagement, CTR, Croissance) et production de rapports hebdomadaires actionnables.</li>
+          <li><span class="dot dot-orange"></span><strong>Growth Hacking Organique :</strong> Identification d'opportunités (hashtags de niche, engagement ciblé, collaborations partenaires) pour maximiser la visibilité.</li>
+        </ul>
+      </div>
+
+      <!-- Les 3 blocs inférieurs -->
       <div class="missions-grid">
 
         <div class="mission-card">
@@ -467,27 +501,24 @@
             <h3>E-Commerce & Web</h3>
           </div>
           <ul>
-            <li><span class="dot dot-orange"></span>Gestion du catalogue PrestaShop 9.0 — fiches produits, visuels, fiches techniques</li>
-            <li><span class="dot dot-orange"></span>Optimisation SEO — Search Console, maillage interne, balises</li>
-            <li><span class="dot dot-orange"></span>Mise à jour et enrichissement de glossaire-av.com</li>
-            <li><span class="dot dot-orange"></span>Préparation de docs produits pour l'équipe commerciale — fiches, présentations marques</li>
+            <li><span class="dot dot-orange"></span><strong>Gestion Catalogue :</strong> Maintenance de PrestaShop 9.0 (fiches produits, visuels, fiches techniques).</li>
+            <li><span class="dot dot-orange"></span><strong>SEO & Data :</strong> Optimisation Search Console, maillage interne et balisage sémantique.</li>
+            <li><span class="dot dot-orange"></span><strong>Écosystème :</strong> Mise à jour du glossaire-av.com et préparation de supports pour l'équipe commerciale.</li>
           </ul>
-          <p class="mission-example">Ex : mise en ligne de 12 nouveaux produits TCL avec visuels et fiches techniques fournis par la marque, puis création d'une présentation produit pour les commerciaux.</p>
+          <p class="mission-example">Ex : Mise en ligne d'une nouvelle gamme TCL et création du deck de présentation associé.</p>
         </div>
 
         <div class="mission-card">
           <div class="mission-card-header">
             <div class="mission-icon icon-violet">📢</div>
-            <h3>Communication & Social Media</h3>
+            <h3>Communication & Opérations</h3>
           </div>
           <ul>
-            <li><span class="dot dot-violet"></span>Newsletters B2B via Omnisend et Resend — rédaction, segmentation, A/B</li>
-            <li><span class="dot dot-violet"></span>LinkedIn EAVS Groupe — planification, posts fournisseurs, actualités produits</li>
-            <li><span class="dot dot-violet"></span>Création de visuels (Canva) — bannières, posts, fiches produits</li>
-            <li><span class="dot dot-violet"></span>Soutien aux salons pro (SETA, ISE…) — brief, print, coordination</li>
-            <li><span class="dot dot-violet"></span>Suivi des KPIs et veille concurrentielle — tableaux de bord, benchmark fournisseurs</li>
+            <li><span class="dot dot-violet"></span><strong>Emailing B2B :</strong> Conception et segmentation des newsletters via Omnisend et Resend.</li>
+            <li><span class="dot dot-violet"></span><strong>Brand Content :</strong> Création de visuels (Canva) pour les bannières web et les fiches marques.</li>
+            <li><span class="dot dot-violet"></span><strong>Événementiel :</strong> Soutien marketing pour les salons pro (SETA, ISE) : briefs, print et coordination.</li>
           </ul>
-          <p class="mission-example">Ex : planifier et rédiger un mois de posts LinkedIn autour du lancement d'une nouvelle marque, puis analyser les performances (portée, engagement, trafic site).</p>
+          <p class="mission-example">Ex : Automatiser une séquence de nurturing suite à l'inscription d'un nouveau client pro.</p>
         </div>
 
         <div class="mission-card">
@@ -496,12 +527,11 @@
             <h3>IA & Innovation</h3>
           </div>
           <ul>
-            <li><span class="dot dot-teal"></span>Automatisation de la génération de fiches produits (Claude / Gemini)</li>
-            <li><span class="dot dot-teal"></span>Veille et tests d'outils IA pour la création de contenu</li>
-            <li><span class="dot dot-teal"></span>Participation à la feuille de route digitale interne</li>
-            <li><span class="dot dot-teal"></span>Intégration des assets fournisseurs dans les workflows IA</li>
+            <li><span class="dot dot-teal"></span><strong>Content Automation :</strong> Industrialisation de la création de fiches produits via Claude / Gemini.</li>
+            <li><span class="dot dot-teal"></span><strong>Workflow Design :</strong> Création de processus automatisés (Zapier/Make) pour gagner en productivité.</li>
+            <li><span class="dot dot-teal"></span><strong>Veille Active :</strong> Test et déploiement de nouveaux outils IA pour l'audiovisuel et le marketing.</li>
           </ul>
-          <p class="mission-example">Ex : construire un prompt capable de générer automatiquement une fiche produit complète à partir d'un datasheet fournisseur PDF.</p>
+          <p class="mission-example">Ex : Construire un prompt capable de générer une fiche produit complète à partir d'un datasheet fournisseur PDF.</p>
         </div>
 
       </div>
@@ -512,13 +542,14 @@
       <p class="section-title">Votre stack</p>
       <div class="tools-grid">
         <div class="tool-chip cat-web"><span class="tool-cat">Web</span>PrestaShop 9.0</div>
-        <div class="tool-chip cat-web"><span class="tool-cat">Web</span>Google Search Console</div>
-        <div class="tool-chip cat-web"><span class="tool-cat">Web</span>Google Workspace</div>
-        <div class="tool-chip cat-com"><span class="tool-cat">Com</span>Omnisend / Resend</div>
-        <div class="tool-chip cat-com"><span class="tool-cat">Com</span>LinkedIn</div>
-        <div class="tool-chip cat-com"><span class="tool-cat">Com</span>Canva</div>
+        <div class="tool-chip cat-web"><span class="tool-cat">Web</span>Search Console / SEO</div>
+        <div class="tool-chip cat-web"><span class="tool-cat">Web</span>Notions HTML / CSS</div>
         <div class="tool-chip cat-ia"><span class="tool-cat">IA</span>Claude / Gemini</div>
-        <div class="tool-chip cat-ia"><span class="tool-cat">IA</span>Notions HTML/CSS</div>
+        <div class="tool-chip cat-ia"><span class="tool-cat">IA</span>Make / Zapier</div>
+        <div class="tool-chip cat-social"><span class="tool-cat">Social</span>LinkedIn / Meta / YT</div>
+        <div class="tool-chip cat-com"><span class="tool-cat">Com</span>Omnisend / Resend</div>
+        <div class="tool-chip cat-com"><span class="tool-cat">Com</span>Canva</div>
+        <div class="tool-chip cat-work"><span class="tool-cat">Work</span>Google Workspace</div>
       </div>
     </div>
 
@@ -531,22 +562,22 @@
         <div class="learn-item">
           <div class="learn-num">01</div>
           <div>
-            <strong>Piloter un e-commerce B2B de A à Z</strong>
-            <p>Catalogue, fiches produits, SEO, analytics — sur un PrestaShop 9.0 en production réelle, pas sur un site vitrine d'école.</p>
+            <strong>Construire et animer une présence social media B2B</strong>
+            <p>LinkedIn, newsletters, campagnes — faire connaître EAVS Groupe et ses marques auprès d'une audience professionnelle exigeante.</p>
           </div>
         </div>
         <div class="learn-item">
           <div class="learn-num">02</div>
           <div>
-            <strong>Intégrer l'IA dans des workflows marketing concrets</strong>
-            <p>Génération de contenus, automatisation, prompting — des outils comme Claude ou Gemini utilisés en contexte professionnel, pas en démo.</p>
+            <strong>Piloter un e-commerce B2B de A à Z</strong>
+            <p>Catalogue, fiches produits, SEO, analytics — sur un PrestaShop 9.0 en production réelle, pas sur un site vitrine d'école.</p>
           </div>
         </div>
         <div class="learn-item">
           <div class="learn-num">03</div>
           <div>
-            <strong>Construire et animer une présence social media B2B</strong>
-            <p>LinkedIn, newsletters, campagnes — faire connaître EAVS Groupe et ses marques auprès d'une audience professionnelle exigeante.</p>
+            <strong>Intégrer l'IA dans des workflows marketing concrets</strong>
+            <p>Génération de contenus, automatisation, prompting — des outils comme Claude ou Gemini utilisés en contexte professionnel, pas en démo.</p>
           </div>
         </div>
         <div class="learn-item">
@@ -585,7 +616,7 @@
         <div class="profil-card must">
           <h4>Indispensable</h4>
           <ul>
-            <li>Formation Bac+3 à Bac+5 Marketing / Com / Digital</li>
+            <li>Formation Bac à Bac+5 Marketing / Com / Digital</li>
             <li>Curiosité réelle pour les outils IA — pas juste sur le CV</li>
             <li>Rédaction claire et structurée, en français</li>
             <li>Autonomie et sens de l'initiative</li>
@@ -596,6 +627,7 @@
         <div class="profil-card plus">
           <h4>Un vrai plus</h4>
           <ul>
+            <li>Curiosité technique avant tout : que tu viennes d'école de commerce, de web ou que tu sois un "IA-native" passionné, c'est ton mindset qui compte.</li>
             <li>Maîtrise des réseaux sociaux (LinkedIn, Instagram…)</li>
             <li>Expérience email marketing (Omnisend, Mailchimp…)</li>
             <li>Bases HTML/CSS pour retouches de templates</li>
@@ -614,4 +646,14 @@
         Postuler — <span class="__cf_email__" data-cfemail="41206f3724332f2e2f01242037326c26332e3431246f2733">[email&#160;protected]</span>
       </a>
       <p class="cta-sub">Prise de poste septembre 2026 · Bonneuil-sur-Marne (94)</p>
-    <
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <a href="https://www.eavs-groupe.com" target="_blank">eavs-groupe.com</a> · Tous droits réservés EAVS Groupe
+</footer>
+
+</body>
+</html>
